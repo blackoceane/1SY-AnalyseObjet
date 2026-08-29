@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+actor caissier as employé
+actor propriétaire
+actor client
+actor institut_financiere
+actor centre_autorisation
+rectangle "Alkatrak" {
+    usecase "entrer une quantite" as UC0
+    usecase "Scanner " as UC1
+    usecase "demander le payement "as UC2
+      usecase "payer credit"as UC3
+      usecase "payer debit"as UC4
+      usecase "payer cash" as UC5
+      usecase "enregistrer payement"as UC6
+    usecase "presenter coupon"as UC7
+    usecase "initialiser"as UC8
+    usecase "effectuer le payement" as UC9
+   
+}
+
+employé ---> UC1
+employé ---> UC6
+employé---> UC2
+client -->UC9
+propriétaire -->UC8
+centre_autorisation -->UC3
+institut_financiere --> UC4
+UC5-|>UC2
+UC4-|>UC2
+UC3-|>UC2
+UC0.>UC1:extends
+UC6.>UC7:extends
+
+
+
+@enduml

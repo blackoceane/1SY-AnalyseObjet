@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+
+actor pompiste
+
+rectangle "PetroShawi" {
+    usecase "Enregistrer paiement" as UC2
+    
+}
+
+pompiste--> UC2
+
+
+@enduml

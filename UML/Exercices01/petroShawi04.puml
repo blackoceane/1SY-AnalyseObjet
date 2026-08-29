@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+actor pompiste
+actor client
+actor technicien 
+rectangle "PetroShawi" {
+    usecase "Prend essence" as UC1
+    usecase "Enregistrer paiement" as UC2
+    usecase "Reparer"as UC3
+    
+}
+client --> UC1
+pompiste--> UC2
+technicien-->UC3
+pompiste--|>client
+technicien--|>pompiste
+
+@enduml

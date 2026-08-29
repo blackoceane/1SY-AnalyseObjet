@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+actor etudiant 
+actor aplication as app
+actor serveur
+actor SAP
+
+rectangle "nominal" {
+    usecase "S authentifier" as UC0
+    usecase "Acceder à ses notes " as UC1
+    usecase "demander l authentification "as UC2
+    usecase "Envoyer l authentification"as UC3
+    usecase "demander les notes"as UC4
+    usecase "renvoyer reponse l authentification"as UC5
+    usecase "Envoyer les notes"as UC6
+    usecase "confirmer l authentification"as UC7
+
+}
+etudiant -->UC0
+UC0.> UC1: extends
+app-->UC2
+app-->UC3
+app-->UC4
+serveur-->UC3
+serveur --> UC5
+serveur --> UC6
+SAP-->UC7
+
+
+
+@enduml

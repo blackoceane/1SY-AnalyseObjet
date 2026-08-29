@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+
+
+actor client
+rectangle "Biblio" {
+    usecase "Rechercher" as UC1
+    usecase "Emprunter" as UC2
+    usecase "Reserver"as UC3
+    
+}
+client --> UC1
+UC2.> UC1:extends
+UC3.>UC1:extends
+
+
+@enduml

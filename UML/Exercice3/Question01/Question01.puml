@@ -1,0 +1,9 @@
+@startuml
+    object livre {
+        nom
+    }
+object recette{
+    nom
+    }
+livre  -- "50...75" recette
+@enduml

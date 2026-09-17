@@ -1,0 +1,23 @@
+@startuml
+title Qualitek
+
+actor Employe
+control Systheme_analyse_donnees as SAD
+boundary Scanner_regulier as Scan
+database base_donnees as BD
+
+
+ref over Employe, SAD : Authentification de l employe 
+Employe -> SAD : Analyser la piece
+alt Analyser la piece  positive
+SAD --> Employe : Envoyer la confirmation 
+Employe->Scan : Scanner le numero de serie de la piece 
+Scan  --> Employe : Envoyer le numero de serie 
+Employe -> SAD : Envoyer les informations 
+SAD->BD: Ajouter à la base de données de l'inventaire
+else Analyser la piece negative
+ref over Employe , SAD:  procéder a la  non-conformité 
+end
+
+
+@enduml

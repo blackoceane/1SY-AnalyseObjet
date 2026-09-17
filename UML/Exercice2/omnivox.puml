@@ -1,0 +1,20 @@
+@startuml
+title Omnivox
+
+actor Etudiant
+boundary Application as UI
+control Serveur
+participant SAP
+database Base_donnees as BD
+Etudiant -> UI : Ouverture de l app et tentative acces aux notes de l etudiant
+UI -->Etudiant : Acces refuse
+Etudiant -> UI : saisir identifiant et mot de passe
+UI -> Serveur : envoyer requete
+Serveur -> SAP : renvoyer requete
+SAP --> Serveur : confirmer authentification
+Serveur --> UI : confirmation authentification
+UI -> Serveur: demander les notes de l etudiant
+Serveur ->BD : consulter la base de donnees
+BD -->Serveur : retourner les notes
+Serveur --> UI : retourner les notes 
+@enduml

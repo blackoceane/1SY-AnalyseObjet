@@ -8,7 +8,7 @@ rectangle "Shamazon" {
     usecase "Authentifier" as UC1
     usecase "Passer une commande " as UC2
     usecase "passer une commande urgente"as UC3
-     usecase "Expedier une commande"as UC4
+    usecase "Expedier une commande"as UC4
     
 }
 client --> UC2

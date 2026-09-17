@@ -1,0 +1,17 @@
+@startuml
+
+title Cycle de vie de l eau 
+
+state "liquid"
+state "Solide"
+state "Gazeux"
+
+
+liquid ---> Gazeux : evaporation [T >= 100]
+Gazeux ---> liquid : condensation  [T == 100]
+Solide ---> liquid : fusion [T <= 0 ]
+liquid ---> Solide : solidification [T > 0 ]
+Gazeux ---> Solide : deposition [T < 0]
+Solide ---> Gazeux : sublimation [T < 0]
+
+@enduml

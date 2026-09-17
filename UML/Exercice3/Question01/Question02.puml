@@ -1,0 +1,13 @@
+@startuml
+    object livre {
+        nom
+    }
+object recette{
+    nom
+    }
+
+/' livre:nom
+recette:nom '/
+
+livre  o-- "100" recette
+@enduml

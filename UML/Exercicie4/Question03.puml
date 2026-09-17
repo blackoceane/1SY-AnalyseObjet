@@ -1,0 +1,26 @@
+@startuml Commande
+title Cycle de vie d'une fenetre Windows
+
+state Crée
+state Visble
+state Normale
+state Agrandie
+state Reduite
+
+
+[*] -> Crée
+
+Crée --> Visible
+
+Visible --> Normale 
+Normale --> Agrandie
+Normale --> Reduite 
+
+
+
+Crée --> [*]
+Normale --> [*]
+Agrandie--> [*]
+Reduite --> [*]
+
+@enduml

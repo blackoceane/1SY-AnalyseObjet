@@ -1,0 +1,43 @@
+@startuml Zenlean Ticket Manager
+
+entity Tenant {
+  name
+}
+
+entity Unit {
+  door number
+}
+
+entity Building {
+  adress
+}
+
+entity Group {
+  domain
+}
+
+entity Lease {
+  Renew Date
+  Renew()
+}
+
+entity Request {
+  description
+  priority
+  time between verifications
+  last verification time
+
+  triggateUpdate()
+}
+
+Tenant "*"--o Unit
+
+Unit "1..*" --*  Building
+Building "*" --* Group
+
+Lease .. (Tenant, Unit)
+
+Tenant "1"-- "*" Request :Requests
+Request "1" -- "*" Unit : concerns
+
+@enduml

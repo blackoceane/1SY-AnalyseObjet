@@ -1,0 +1,23 @@
+@startuml
+object membre{ 
+        nom
+       
+    }
+object amis{
+    
+     date_amitie
+    }
+ 
+object groupe {
+    nom
+    
+    }
+    <> diamond
+    amis . diamond
+    diamond - "1..5000"membre
+    diamond - "1"membre
+
+groupe  o--- "3..*" membre
+
+
+@enduml

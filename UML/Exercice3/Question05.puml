@@ -1,0 +1,17 @@
+@startuml
+abstract class  Node 
+
+class File {
+   data : byte[]
+}
+
+class Folder{
+    name : string
+}
+
+
+Node <|-- File
+Folder --|> Node
+
+Folder*--Node
+@enduml

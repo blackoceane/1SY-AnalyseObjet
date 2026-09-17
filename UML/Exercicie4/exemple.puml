@@ -1,0 +1,30 @@
+@startuml Commande
+title Cycle de vie d'une commande
+
+state EnPreparation
+state EnAttente
+state Expediee
+state Livree
+state Retournee
+state Remboursee
+state Refusee
+
+[*] -> EnPreparation
+
+EnPreparation --> EnAttente : expédier [stock insuffisant]
+EnPreparation --> Expediee : expédier [stock disponible]
+
+EnAttente --> EnPreparation : réapprovisionnement
+Expediee -> Livree : colis reçu
+
+Livree --> Retournee : retour demandé [délai <= 30 jours]
+Livree --> Terminee : [délai > 30 jours]
+
+Retournee --> Remboursee : [produit en bon état]
+Retournee --> Refusee : [produit endommagé]
+
+Remboursee --> [*]
+Refusee --> [*]
+Terminee -> [*]
+
+@enduml

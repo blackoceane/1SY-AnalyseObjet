@@ -1,0 +1,31 @@
+@startuml Zenlean
+
+entity Tenant {
+  name
+}
+
+entity Unit {
+  door number
+}
+
+entity Building {
+  adress
+}
+
+entity Group {
+  domain
+}
+
+entity Lease {
+  Renew Date
+  Renew()
+}
+
+Tenant "*"--o Unit
+
+Unit "1..*" --*  Building
+Building "*" --* Group
+
+Lease .. (Tenant, Unit)
+
+@enduml

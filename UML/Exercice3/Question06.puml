@@ -1,0 +1,25 @@
+@startuml
+entity Airline {
+   name
+}
+
+entity Flight {
+   Flight_no
+   departure_date
+   arrival_date
+}
+
+entity Airport {
+   name
+   identification_no
+}
+
+entity City {
+   name
+}
+
+Airline "1" -- "0..*" Flight : sells
+Flight "0..*" -- "1 origin" Airport 
+Flight "0..*" -- "1 destination" Airport  
+Airport "0..*" -- "1" City : found in
+@enduml

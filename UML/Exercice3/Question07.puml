@@ -1,0 +1,34 @@
+@startuml Stores
+
+entity Flyer {
+
+date_debut
+date_fin
+}
+
+entity inventory {
+quantite
+}
+
+entity article {
+  name
+
+}
+
+entity store {
+  adresse
+
+
+}
+
+entity company {
+  name
+}
+
+article   -- store 
+inventory -- (article, store)
+store "1..*" --*  company : est géré 
+Flyer  *-- "10..*" article
+Flyer -- company : est distribué
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title Money
+
+actor Utilisateur as User
+actor machine_guichets_automatiques as Machine
+boundary Navigateur  as UI
+control Serveur
+
+database Base_donnees as BD
+
+
+
+ref over User : Authentification de l utilisateur
+
+User -> UI : selectionner retirer de l argent 
+User -> UI :  entrer la somme d argent a retirer
+UI -> Serveur : renvoyer requete
+Serveur ->Serveur : Analyser la somme d argent a retirer
+Serveur -> BD :  Consulter la base de donnees
+BD  --> Serveur: Renvoyer le resultat
+alt resultat Negatif
+Serveur -->UI  : Afficher "fond insuffissant"
+else resultat positif
+Serveur  -->Machine : Acceder a l argent voulu 
+end
+
+@enduml

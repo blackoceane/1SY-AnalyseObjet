@@ -1,0 +1,25 @@
+@startuml
+
+title Cycle de vie de la serrure
+
+state "ouverte" 
+state "fermée" 
+
+
+
+state verouillé {
+     fermée -> ouverte : simple tour
+     ouverte -> fermée : simple tour
+}
+state deverouillé {
+     fermée -> ouverte : simple tour
+     ouverte -> fermée : simple tour
+}
+
+verouillée ---> deverouillée :  double tour
+deverouillé --> verouillé : double tour
+
+
+
+
+@enduml

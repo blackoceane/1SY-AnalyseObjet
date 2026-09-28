@@ -1,0 +1,24 @@
+@startuml
+title inscription du membre
+
+actor Membre as user
+boundary Application as UI
+control Serveur
+database Base_donnees as BD
+
+
+ref over user : Authentification de l utilisateur
+user -> UI: saisir le nom 
+user -> UI: le numero de telephone 
+user -> UI: l adresse du domaticile et la date de naissance
+UI -> Serveur : validation du format des différents informations
+alt validation negatif
+Serveur --> UI :  Afficher "veuillez mieux remplir le formulaire "
+
+alt validation positif
+Serveur --> UI :  Afficher "validation terminée "
+ref over user : Ajout de la carte de crédit (FALCUTATIF) 
+Serveur ->BD : Enregistrer les différents informations
+Serveur --> UI :  Afficher "Inscription terminée "
+
+@enduml

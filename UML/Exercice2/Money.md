@@ -30,7 +30,7 @@ AUCUN
 
 ### Scénario nominal
 
-_Inscrire de façon numérotée, chacune des interactions entre les différents participants du système. Considérer ici le scénario nominal (avec vos lunettes roses, quand tout va pour le mieux). Utiliser le mode `ping-pong`_
+
 
 2. l 'utilisateur selectionne retirer de l' argent 
 3. l utilisateur entre la somme d argent a retirer 

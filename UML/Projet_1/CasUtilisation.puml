@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+
+actor "système d'autorisation de crédit" as SAC
+actor membre
+actor "préposé a la location " as employé
+actor invité
+actor gérant
+actor "institution financier" as banque_debit
+rectangle "RentIT" {
+    usecase "Consulter les vehicules " as consult 
+    usecase "effectuer la reservation " as reserver
+    usecase "S'inscrire " as inscrire
+    usecase "Entrer/Ajouter sa carte de crédit " as entrer 
+    usecase "Remplir le formulaire de la voiture " as remplir 
+    usecase "Prendre à note l 'état initial du vehicule" as note
+    usecase "demander le mode de payement"as  payement 
+    usecase "payer debit"as  debit 
+    usecase "payer credit"as  credit 
+    usecase "payer liquide"as  liquide 
+    usecase "retour du vehicule" as retour
+    usecase "gerer la liste de vehicule disponible" as dispo
+    usecase "Authentifier" 
+    
+
+    
+}
+invité -->consult
+membre -->inscrire
+membre --> reserver
+membre -->entrer
+SAC -->entrer
+membre -->remplir
+employé --> note
+employé --> payement
+membre --> debit
+membre --> credit 
+membre --> liquide
+SAC -->credit
+banque_debit --> debit
+employé --> retour
+gérant --> dispo
+membre --> Aunthentifier 
+
+@enduml

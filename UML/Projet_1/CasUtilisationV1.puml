@@ -1,0 +1,51 @@
+@startuml RentIT
+left to right direction
+
+actor "Système d'autorisation de crédit" as SAC
+actor "Institution financiaire" as DebitManagers
+
+actor "Membre" as Member
+actor "Invité" as Inv
+actor "Gérant" as Manager
+actor "Préposé à la location" as Employee
+
+rectangle "RentIT" {
+  usecase "Gérer la liste de véhicules disponibles" as List
+
+  usecase "S'inscrire" as Inscr
+  usecase "Consulter les véhicules" as Consult 
+  usecase "Ajouter sa carte de crédit" as AddCard 
+
+  usecase "Effectuer une reservation" as Res
+  usecase "Payer liquide" as Cash
+  usecase "Payer débit" as Debit 
+  usecase "Payer crédit" as Credit 
+
+  usecase "Demander le mode de payement" as AskPay
+  usecase "Prendre en note l'état initial du véhicule" as Note
+  usecase "Retourner le véhicule" as Retu
+  usecase "S'authentifier" as Auth
+}
+
+Manager --|> Employee
+Member --|> Inv
+Manager --> List
+
+Inv --> Inscr
+Inv --> Consult
+Member --> AddCard
+Member --> Res
+Member --> Cash
+Cash --> Debit : <<Entend>>
+Cash --> Credit : <<Entend>>
+
+Employee --> AskPay
+Employee --> Note
+Employee --> Retu : "Retourner le vehicule"
+Employee --> Auth
+
+SAC --> AddCard : "Valider la carte"
+SAC --> Credit
+DebitManagers --> Debit
+
+@enduml
